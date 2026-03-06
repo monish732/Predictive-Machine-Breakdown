@@ -35,7 +35,7 @@ _LABEL_MAP = {0: "Normal", 1: "EarlyFault", 2: "Critical"}
 def _load_models():
     """Load saved models from disk (cached import)."""
     rf_path = hf_hub_download(
-        repo_id="monish732/predictive-machine-breakdown-rf",
+        repo_id="monish-73/predictive-machine-breakdown-rf",
         filename="rf_classifier.pkl",
         force_download=True
     )
