@@ -13,7 +13,7 @@ from dataclasses import dataclass, field, asdict
 from typing import Optional
 import numpy as np
 import joblib
-
+from huggingface_hub import hf_hub_download
 # ─── Config ──────────────────────────────────────────────────────────────────
 MODEL_DIR   = "model"
 THRESHOLDS  = {
@@ -34,7 +34,12 @@ _LABEL_MAP = {0: "Normal", 1: "EarlyFault", 2: "Critical"}
 
 def _load_models():
     """Load saved models from disk (cached import)."""
-    clf    = joblib.load(os.path.join(MODEL_DIR, "rf_classifier.pkl"))
+    rf_path = hf_hub_download(
+        repo_id="monish-73/predictive-machine-breakdown-rf",
+        filename="rf_classifier.pkl"
+    )
+
+    clf = joblib.load(rf_path)
     scaler = joblib.load(os.path.join(MODEL_DIR, "scaler.pkl"))
     iso    = joblib.load(os.path.join(MODEL_DIR, "isolation_forest.pkl"))
     reg    = joblib.load(os.path.join(MODEL_DIR, "rul_regressor.pkl"))
