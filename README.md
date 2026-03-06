@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="docs/images/architecture.png" alt="SMARTPREDICT 2.0 Architecture" width="100%"/>
-
 # 🏭 SMARTPREDICT 2.0
 ### Zero-Surprise Predictive Maintenance System for CNC Machines
 
@@ -262,72 +260,20 @@ else:
 ```
 
 ---
-
-## 🏆 Hackathon Innovation Highlights
-
-| Feature | Why It Wins |
-|---------|------------|
-| **Hybrid Voting Ensemble** | 3 models collaborating > 1 model alone |
-| **Physics + ML Fusion** | Real production systems use rule + AI, not AI alone |
-| **RUL Prediction** | Tells *when* failure, not just *if* |
-| **Explainability** | Every alert explains root cause (sensor-level) |
-| **Demo Mode** | Live failure simulation for judges in 60 seconds |
-| **15-Machine Fleet** | Enterprise scale, not a toy demo |
-| **Smart Scheduling** | Recommends best maintenance time window |
-
----
-
-## 🎤 2-Minute Pitch
-
-> "Every hour of unplanned downtime costs manufacturers up to ₹2 lakh. SMARTPREDICT 2.0
-> gives your maintenance team a 48-hour warning before any CNC machine fails.
->
-> We built a hybrid AI system combining three machine learning models — Random Forest,
-> Gradient Boosting, and Extra-Trees — in a soft-voting ensemble, achieving 94.1% accuracy
-> on 6-sensor data from 15 machines. The system doesn't just say 'this machine will fail' —
-> it tells you which sensors are triggering the alert, predicts exactly how many hours remain,
-> and recommends the best maintenance window to minimise production impact.
->
-> With a physics-based safety override layer working alongside the AI, our system handles even
-> boundary cases that confuse pure ML approaches. The result: zero false negatives for
-> Critical failures, real-time fleet monitoring across all 15 machines, and a one-click
-> demo that simulates an actual failure progression from Normal to Critical.
->
-> SMARTPREDICT 2.0 doesn't just predict failures — it prevents them."
-
----
-
-## ❓ Judge Q&A
-
-**Q: Why not use a deep learning model like LSTM?**
-> Our Hybrid Ensemble outperforms LSTM on tabular sensor data and trains in 2.5 minutes instead of hours. LSTM excels at pure time-series sequences; RF+GBM+ExtraTrees ensemble is state-of-art for structured multi-sensor data (validated in industrial literature).
-
-**Q: Why 94.1% and not 100%?**
-> 100% is a red flag — it means the data is too easy. We intentionally built overlapping class distributions, 3% label noise, temporal drift, and outlier spikes to mirror real industrial data. 94.1% with perfect cross-validation stability (±0.29%) is the hallmark of a genuinely learning model.
-
-**Q: How is the RUL calculated?**
-> A Gradient Boosting Regressor trained on historical runtime hours and condition progression predicts remaining hours to failure. R²=0.808 means 80.8% of RUL variance is explained by our sensor features.
-
-**Q: Can this work with real sensors / PLCs?**
-> Yes. Replace `dataset/generate_data.py` with an MQTT/OPC-UA reader. The alert engine accepts a simple Python dict of sensor readings — no schema changes needed.
-
-**Q: What's the physics-based override layer?**
-> If 3+ sensors simultaneously exceed critical physical limits (e.g., vibration>5 mm/s AND temperature>85°C AND sound>88 dB), we force a Critical alert regardless of model output. Real production safety systems always have rule-based backstops alongside AI predictions.
-
----
-
 ## 🛠️ Requirements
 
 ```
-streamlit>=1.28.0
-pandas>=1.5.0
-numpy>=1.23.0
-scikit-learn>=1.1.0
-imbalanced-learn>=0.10.0
-plotly>=5.14.0
-joblib>=1.2.0
-matplotlib>=3.6.0
-seaborn>=0.12.0
+streamlit>=1.36.0
+pandas>=2.2.0
+numpy==2.3.2
+scikit-learn==1.5.2
+scipy>=1.11.4
+joblib>=1.3.2
+plotly>=5.20.0
+seaborn>=0.13.2
+matplotlib>=3.8.4
+huggingface_hub
+altair>=4.2.2
 ```
 
 Install: `pip install -r requirements.txt`
