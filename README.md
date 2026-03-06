@@ -53,7 +53,7 @@ The trained Random Forest model is hosted on Hugging Face.
 
 Download it here:
 
-https://huggingface.co/monish732/predictive-machine-breakdown-rf
+https://huggingface.co/monish-73/predictive-machine-breakdown-rf
 
 Place the downloaded file in:
 
