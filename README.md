@@ -1,6 +1,7 @@
 <div align="center">
 
 # 🏭 SMARTPREDICT 2.0
+https://predictive-machine-breakdown.streamlit.app/
 ### Zero-Surprise Predictive Maintenance System for CNC Machines
 
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square&logo=python)](https://python.org)
@@ -43,7 +44,7 @@ python model/train_pipeline.py
 streamlit run app.py
 ```
 
-**Open: http://localhost:8501** → Dashboard is live!
+**Open: https://predictive-machine-breakdown.streamlit.app/** → Dashboard is live!
 
 ---
 
